@@ -3,17 +3,17 @@ import java.util.Objects;
 public class CommissionEmployee  extends Employee{
 
     private float grossSales;
-    private int commision;
+    private int commission;
 
     public CommissionEmployee() {
-        this.setCommision(0);
+        this.setCommission(0);
         this.setGrossSales(0);
     }
 
-    public CommissionEmployee(String firstName, String lastName, int id, float grossSales, int commision) {
+    public CommissionEmployee(String firstName, String lastName, int id, float grossSales, int commission) {
         super(firstName, lastName, id);
         this.setGrossSales(grossSales);
-        this.setCommision(commision);
+        this.setCommission(commission);
     }
 
     public float getGrossSales() {
@@ -21,15 +21,19 @@ public class CommissionEmployee  extends Employee{
     }
 
     public void setGrossSales(float grossSales) {
+        if(grossSales<0)
+            throw  new IllegalArgumentException("gross sales cannot be negative");
         this.grossSales = grossSales;
     }
 
-    public int getCommision() {
-        return commision;
+    public int getCommission() {
+        return commission;
     }
 
-    public void setCommision(int commision) {
-        this.commision = commision;
+    public void setCommission(int commission) {
+        if(commission<0 || commission>100)
+            throw  new IllegalArgumentException("commission must be within the range of 0 to 100");
+        this.commission = commission;
     }
 
     @Override
@@ -38,17 +42,17 @@ public class CommissionEmployee  extends Employee{
         if (!(o instanceof CommissionEmployee)) return false;
         if (!super.equals(o)) return false;
         CommissionEmployee that = (CommissionEmployee) o;
-        return Float.compare(that.grossSales, grossSales) == 0 && commision == that.commision;
+        return Float.compare(that.grossSales, grossSales) == 0 && commission == that.commission;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), grossSales, commision);
+        return Objects.hash(super.hashCode(), grossSales, commission);
     }
 
     @Override
     public float earnings() {
-        return this.getGrossSales()*(this.getCommision()/100);
+        return this.getGrossSales()*(this.getCommission()/100);
     }
 
     @Override
@@ -57,7 +61,7 @@ public class CommissionEmployee  extends Employee{
                 super.toString()+
                 ", "+
                 "grossSales=" + grossSales +
-                ", commision=" + commision +
+                ", commission=" + commission +
                 '}';
     }
 }

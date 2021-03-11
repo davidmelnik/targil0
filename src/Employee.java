@@ -13,9 +13,9 @@ private int id;
     }
 
     public Employee(String firstName, String lastName, int id) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setId(id);
     }
 
     public String getFirstName() {
@@ -39,8 +39,8 @@ private int id;
     }
 
     public void setId(int id) {
-        if(id<0)
-            throw  new IllegalArgumentException("id <0 !");
+        if(id<0 || id>999999999)
+            throw  new IllegalArgumentException("id cannot be negative or more than 9 digits");
         this.id = id;
     }
 
