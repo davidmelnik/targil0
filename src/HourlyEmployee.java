@@ -43,7 +43,7 @@ public class HourlyEmployee extends Employee{
                 super.toString()+
                 ", "+
                 "hours=" + hours +
-                ", wage=" + wage +
+                ", wage=" + String.format("%.2f",wage) +
                 '}';
     }
 }

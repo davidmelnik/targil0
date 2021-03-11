@@ -41,7 +41,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
         return "BasePlusCommissionEmployee{" +
                 super.toString()+
                 ", "+
-                "baseSalary=" + baseSalary +
+                "baseSalary=" + String.format("%.2f",baseSalary) +
                 '}';
     }
 

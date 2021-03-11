@@ -52,7 +52,7 @@ public class CommissionEmployee  extends Employee{
 
     @Override
     public float earnings() {
-        return this.getGrossSales()*(this.getCommission()/100);
+        return this.getGrossSales()*(this.getCommission()/100f); //added an 'f' to do a float division
     }
 
     @Override
@@ -60,7 +60,7 @@ public class CommissionEmployee  extends Employee{
         return "CommissionEmployee{" +
                 super.toString()+
                 ", "+
-                "grossSales=" + grossSales +
+                "grossSales=" + String.format("%.2f",grossSales) +
                 ", commission=" + commission +
                 '}';
     }
