@@ -39,11 +39,10 @@ public class HourlyEmployee extends Employee{
     }
 @Override
     public String toString() {
-        return  "HourlyEmployee{" +
+        return
                 super.toString()+
                 ", "+
                 "hours=" + hours +
-                ", wage=" + String.format("%.2f",wage) +
-                '}';
+                ", wage=" + String.format("%.2f",wage) ;
     }
 }

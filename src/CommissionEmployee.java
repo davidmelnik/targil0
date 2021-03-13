@@ -57,11 +57,10 @@ public class CommissionEmployee  extends Employee{
 
     @Override
     public String toString() {
-        return "CommissionEmployee{" +
+        return
                 super.toString()+
                 ", "+
                 "grossSales=" + String.format("%.2f",grossSales) +
-                ", commission=" + commission +
-                '}';
+                ", commission=" + commission ;
     }
 }

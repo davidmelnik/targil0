@@ -61,10 +61,11 @@ private int id;
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", id=" + id +
-                '}';
+                ", earning=" +this.earnings();
+
     }
 }
