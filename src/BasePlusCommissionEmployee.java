@@ -3,8 +3,8 @@ import java.util.Objects;
 public class BasePlusCommissionEmployee extends CommissionEmployee {
     private float baseSalary;
 
-    public BasePlusCommissionEmployee(String firstName, String lastName, int id, float grossSales, int commision, float baseSalary) {
-        super(firstName, lastName, id, grossSales, commision);
+    public BasePlusCommissionEmployee(String firstName, String lastName, int id, float grossSales, int commission, float baseSalary) {
+        super(firstName, lastName, id, grossSales, commission);
         this.setBaseSalary(baseSalary);
     }
 
@@ -17,6 +17,8 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     }
 
     public void setBaseSalary(float baseSalary) {
+        if(baseSalary<0)
+            throw  new IllegalArgumentException("base salary cannot be negative");
         this.baseSalary = baseSalary;
     }
 
@@ -39,7 +41,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
         return "BasePlusCommissionEmployee{" +
                 super.toString()+
                 ", "+
-                "baseSalary=" + baseSalary +
+                "baseSalary=" + String.format("%.2f",baseSalary) +
                 '}';
     }
 

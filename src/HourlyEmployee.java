@@ -4,8 +4,8 @@ public class HourlyEmployee extends Employee{
 
     public HourlyEmployee(String firstName, String lastName, int id, int hours, float wage) {
         super(firstName, lastName, id);
-        this.hours = hours;
-        this.wage = wage;
+        this.setHours(hours);
+        this.setWage(wage);
     }
 
     public HourlyEmployee() {
@@ -23,6 +23,8 @@ public class HourlyEmployee extends Employee{
     }
 
     public void setHours(int hours) {
+        if(hours<0)
+            throw  new IllegalArgumentException("hours cannot be negative");
         this.hours = hours;
     }
 
@@ -31,6 +33,8 @@ public class HourlyEmployee extends Employee{
     }
 
     public void setWage(float wage) {
+        if(hours<0)
+            throw  new IllegalArgumentException("wage cannot be negative");
         this.wage = wage;
     }
 @Override
@@ -39,7 +43,7 @@ public class HourlyEmployee extends Employee{
                 super.toString()+
                 ", "+
                 "hours=" + hours +
-                ", wage=" + wage +
+                ", wage=" + String.format("%.2f",wage) +
                 '}';
     }
 }
